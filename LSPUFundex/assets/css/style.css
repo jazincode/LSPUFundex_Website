@@ -1,0 +1,711 @@
+/* ============================================
+   LSPUFundex - Main Stylesheet
+   File: assets/css/style.css
+   ============================================ */
+
+/* --- Google Font & Root Variables --- */
+:root {
+    --dark-blue:   #0d1b2a;
+    --royal-blue:  #1b4f72;
+    --mid-blue:    #2980b9;
+    --light-blue:  #d6eaf8;
+    --emerald:     #27ae60;
+    --red:         #e74c3c;
+    --white:       #ffffff;
+    --light-gray:  #f4f6f9;
+    --border:      #e0e6ed;
+    --text-dark:   #2c3e50;
+    --text-muted:  #7f8c8d;
+    --sidebar-w:   260px;
+    --navbar-h:    64px;
+    --shadow:      0 2px 15px rgba(0,0,0,0.08);
+    --radius:      10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: var(--light-gray);
+    color: var(--text-dark);
+    font-size: 14px;
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.lspu-navbar {
+    background: linear-gradient(90deg, var(--dark-blue), var(--royal-blue));
+    height: var(--navbar-h);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1050;
+}
+
+.brand-icon {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; color: white;
+}
+
+.brand-name {
+    font-size: 18px; font-weight: 700;
+    color: white; line-height: 1.1;
+    letter-spacing: 0.5px;
+}
+
+.brand-tagline {
+    font-size: 10px; color: rgba(255,255,255,0.6);
+    display: block; letter-spacing: 0.3px;
+}
+
+.user-avatar-sm {
+    width: 28px; height: 28px;
+    background: var(--emerald);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: white;
+}
+
+.navbar-toggler { border: none; background: none; }
+.navbar-toggler:focus { box-shadow: none; }
+
+/* ============================================
+   LAYOUT — Sidebar + Main
+   ============================================ */
+.page-wrapper {
+    display: flex;
+    padding-top: var(--navbar-h);
+    min-height: 100vh;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.sidebar {
+    width: var(--sidebar-w);
+    background: var(--dark-blue);
+    min-height: calc(100vh - var(--navbar-h));
+    position: fixed;
+    top: var(--navbar-h);
+    left: 0;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    z-index: 1040;
+    padding-bottom: 80px;
+}
+
+.sidebar-inner { padding: 20px 0; }
+
+.sidebar-section { margin-bottom: 8px; }
+
+.sidebar-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1.5px;
+    padding: 12px 22px 6px;
+    text-transform: uppercase;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 22px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link:hover {
+    color: white;
+    background: rgba(255,255,255,0.07);
+    border-left-color: var(--mid-blue);
+}
+
+.sidebar-link.active {
+    color: white;
+    background: rgba(41,128,185,0.25);
+    border-left-color: var(--mid-blue);
+    font-weight: 600;
+}
+
+.sidebar-link i { font-size: 16px; min-width: 18px; }
+
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+    min-width: 0;
+    transition: margin-left 0.3s ease;
+}
+
+.content-inner {
+    padding: 28px 30px;
+    min-height: calc(100vh - var(--navbar-h) - 52px);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.lspu-footer {
+    background: white;
+    border-top: 1px solid var(--border);
+    padding: 14px 0;
+    margin-left: var(--sidebar-w);
+}
+
+/* ============================================
+   DASHBOARD CARDS
+   ============================================ */
+.stat-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.stat-icon {
+    width: 54px; height: 54px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; flex-shrink: 0;
+}
+
+.stat-icon.blue    { background: #eaf2fb; color: var(--royal-blue); }
+.stat-icon.green   { background: #eafaf1; color: var(--emerald); }
+.stat-icon.red     { background: #fdedec; color: var(--red); }
+.stat-icon.orange  { background: #fef9e7; color: #e67e22; }
+
+.stat-value {
+    font-size: 22px; font-weight: 700;
+    color: var(--text-dark); line-height: 1;
+}
+
+.stat-label {
+    font-size: 12px; color: var(--text-muted);
+    margin-top: 4px; font-weight: 500;
+}
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+.page-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.page-header h1 {
+    font-size: 22px; font-weight: 700;
+    color: var(--royal-blue);
+}
+
+.page-header p {
+    font-size: 13px; color: var(--text-muted);
+    margin: 0;
+}
+
+.brand-logo{
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+/* ============================================
+   CARDS / PANELS
+   ============================================ */
+.lspu-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.lspu-card-header {
+    background: linear-gradient(90deg, var(--dark-blue), var(--royal-blue));
+    color: white;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.lspu-card-header h5 {
+    margin: 0; font-size: 15px; font-weight: 600;
+}
+
+.lspu-card-body { padding: 20px; }
+
+/* ============================================
+   TABLES
+   ============================================ */
+.lspu-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.lspu-table thead th {
+    background: var(--light-gray);
+    color: var(--royal-blue);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 12px 14px;
+    border-bottom: 2px solid var(--border);
+}
+
+.lspu-table tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dark);
+    vertical-align: middle;
+}
+
+.lspu-table tbody tr:hover { background: #f8fbff; }
+.lspu-table tbody tr:last-child td { border-bottom: none; }
+
+/* ============================================
+   BADGES
+   ============================================ */
+.badge-fund    { background:#eafaf1; color:#1e8449; font-weight:600; padding:4px 10px; border-radius:20px; font-size:12px; }
+.badge-expense { background:#fdedec; color:#c0392b; font-weight:600; padding:4px 10px; border-radius:20px; font-size:12px; }
+.badge-balance { background:#eaf2fb; color:#1a5276; font-weight:600; padding:4px 10px; border-radius:20px; font-size:12px; }
+
+/* ============================================
+   FORMS
+   ============================================ */
+.lspu-form .form-label {
+    font-weight: 600; font-size: 13px;
+    color: var(--text-dark); margin-bottom: 5px;
+}
+
+.lspu-form .form-control,
+.lspu-form .form-select {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 13px;
+    font-size: 13.5px;
+    transition: border-color 0.2s;
+}
+
+.lspu-form .form-control:focus,
+.lspu-form .form-select:focus {
+    border-color: var(--mid-blue);
+    box-shadow: 0 0 0 3px rgba(41,128,185,0.1);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-lspu {
+    background: linear-gradient(90deg, var(--royal-blue), var(--mid-blue));
+    color: white; border: none;
+    border-radius: 8px; padding: 9px 20px;
+    font-weight: 600; font-size: 13.5px;
+    transition: all 0.2s;
+}
+
+.btn-lspu:hover {
+    color: white;
+    box-shadow: 0 4px 15px rgba(27,79,114,0.35);
+    transform: translateY(-1px);
+}
+
+/* ============================================
+   RESPONSIVE — Mobile Sidebar
+   ============================================ */
+/* ============================================
+   SIDEBAR ANIMATION — DESKTOP COLLAPSE
+   ============================================ */
+.sidebar {
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.sidebar.sidebar-collapsed-desktop {
+    transform: translateX(-260px) !important;
+}
+
+.main-content {
+    transition: margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lspu-footer {
+    transition: margin-left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-content.sidebar-hidden {
+    margin-left: 0 !important;
+}
+
+.lspu-footer.sidebar-hidden {
+    margin-left: 0 !important;
+}
+
+/* ============================================
+   SIDEBAR ANIMATION — MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-260px);
+    }
+
+    .sidebar.show {
+        transform: translateX(0) !important;
+        box-shadow: 6px 0 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+    }
+
+    .lspu-footer {
+        margin-left: 0 !important;
+    }
+
+    .content-inner {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .stat-value { font-size: 18px; }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .lspu-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .content-inner { padding: 15px 12px; }
+}
+
+@media (max-width: 576px) {
+    .modal-dialog { margin: 10px; }
+    .modal-body.p-4 { padding: 16px !important; }
+    .modal-footer { flex-direction: column; gap: 8px; }
+    .modal-footer .btn { width: 100%; }
+}
+
+@media (max-width: 360px) {
+    .brand-name { font-size: 15px; }
+    .brand-tagline { display: none !important; }
+}
+
+@media print {
+    .sidebar, .lspu-navbar, .lspu-footer,
+    .btn, form, .page-header button { display: none !important; }
+    .main-content { margin-left: 0 !important; }
+    .lspu-card { box-shadow: none; border: 1px solid #ddd; }
+}
+
+/* ============================================
+   ALERT BOX (inline error inside pages)
+   ============================================ */
+.alert-box {
+    padding: 13px 18px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+}
+
+.alert-box.error {
+    background: #fdedec;
+    border: 1px solid #f5b7b1;
+    border-left: 4px solid #e74c3c;
+    color: #922b21;
+}
+
+.alert-box.success {
+    background: #eafaf1;
+    border: 1px solid #a9dfbf;
+    border-left: 4px solid #27ae60;
+    color: #1e8449;
+}
+/* ============================================
+   AJAX STEP INDICATOR
+   ============================================ */
+.ajax-steps {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.step-badge {
+    background: var(--border);
+    color: var(--text-muted);
+    border-radius: 12px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.step-badge.active {
+    background: var(--royal-blue);
+    color: white;
+}
+
+/* Spinning icon for AJAX loader */
+@keyframes spin {
+    from { transform: rotate(0deg);   }
+    to   { transform: rotate(360deg); }
+}
+
+.spin { display: inline-block; animation: spin 1s linear infinite; }
+
+/* ============================================
+   USER AVATARS & ROLE BADGES
+   ============================================ */
+.user-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+    color: white; flex-shrink: 0;
+}
+
+.role-badge {
+    display: inline-flex; align-items: center;
+    padding: 3px 10px; border-radius: 20px;
+    font-size: 12px; font-weight: 600;
+}
+
+.role-badge.admin {
+    background: #eaf2fb;
+    color: var(--royal-blue);
+}
+
+.role-badge.officer {
+    background: #eafaf1;
+    color: var(--emerald);
+}
+
+/* ============================================
+   SECTION BADGE (Officer Dashboard Header)
+   ============================================ */
+.section-badge-lg {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+}
+
+/* Table footer totals row */
+tfoot td {
+    padding: 12px 14px;
+    font-size: 13.5px;
+}
+/* ============================================
+   EXPENSE CATEGORY BADGES
+   ============================================ */
+.category-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: 600;
+}
+
+.cat-supplies       { background:#eaf2fb; color:#1a5276; }
+.cat-events         { background:#f5eef8; color:#6c3483; }
+.cat-transportation { background:#fef9e7; color:#7d6608; }
+.cat-food           { background:#fef5e7; color:#784212; }
+.cat-printing       { background:#eafaf1; color:#1e8449; }
+.cat-donations      { background:#fdedec; color:#922b21; }
+.cat-others         { background:#f2f3f4; color:#566573; }
+
+/* Action Badges for Audit Logs */
+.action-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.action-create       { background:#eafaf1; color:#1e8449; }
+.action-update       { background:#eaf2fb; color:#1a5276; }
+.action-delete       { background:#fdedec; color:#922b21; }
+.action-login        { background:#f5eef8; color:#6c3483; }
+.action-logout       { background:#f2f3f4; color:#566573; }
+.action-reset_password { background:#fef9e7; color:#7d6608; }
+
+/* Profile Avatar */
+.profile-avatar {
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, var(--royal-blue), var(--mid-blue));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; font-weight: 700; color: white;
+    box-shadow: 0 4px 15px rgba(27,79,114,0.3);
+}
+/* ============================================
+   RESPONSIVE FIXES
+   ============================================ */
+
+/* Tables scroll horizontally on mobile */
+.table-responsive {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Stack stat cards properly on very small screens */
+@media (max-width: 480px) {
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    .stat-value { font-size: 18px; }
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .lspu-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .content-inner { padding: 15px 12px; }
+}
+
+/* Modals fit on mobile */
+@media (max-width: 576px) {
+    .modal-dialog { margin: 10px; }
+    .modal-body.p-4 { padding: 16px !important; }
+    .modal-footer { flex-direction: column; gap: 8px; }
+    .modal-footer .btn { width: 100%; }
+}
+
+/* Fix navbar brand on very small screens */
+@media (max-width: 360px) {
+    .brand-name { font-size: 15px; }
+    .brand-tagline { display: none !important; }
+}
+
+/* Print styles — hide sidebar/navbar when printing */
+@media print {
+    .sidebar, .lspu-navbar, .lspu-footer,
+    .btn, form, .page-header button { display: none !important; }
+    .main-content { margin-left: 0 !important; }
+    .lspu-card { box-shadow: none; border: 1px solid #ddd; }
+}
+.role-badge.council {
+    background: #f5eef8;
+    color: #6c3483;
+}
+
+/* ============================================
+   SIDEBAR TOGGLE ANIMATION
+   ============================================ */
+
+/* Smooth transition already on .sidebar,
+   this adds the collapsed state for desktop */
+.sidebar {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Desktop — sidebar collapsed state */
+.sidebar.collapsed {
+    transform: translateX(calc(-1 * var(--sidebar-w)));
+}
+
+/* Main content and footer expand when sidebar collapses */
+.main-content {
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lspu-footer {
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.main-content.sidebar-collapsed {
+    margin-left: 0;
+}
+
+.lspu-footer.sidebar-collapsed {
+    margin-left: 0;
+}
+
+/* Mobile overlay — darkens page when sidebar is open */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1039;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Toggle button icon animation */
+#sidebarToggle {
+    transition: transform 0.2s ease;
+}
+
+#sidebarToggle:active {
+    transform: scale(0.85);
+}
+
+/* Sidebar slides in from left with shadow on mobile */
+@media (max-width: 768px) {
+    .sidebar.show {
+        transform: translateX(0);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+    }
+}
